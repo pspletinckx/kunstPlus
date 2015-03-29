@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
+    private String QRresource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,9 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     private void voorbeeldqrview(){
+        QRresource = "http://github-pspletinckx.rhcloud.com";
         Intent intent = new Intent(this,QRObjectActivity.class);
+        intent.putExtra("LoadResource",QRresource);
         startActivity(intent);
     }
 }

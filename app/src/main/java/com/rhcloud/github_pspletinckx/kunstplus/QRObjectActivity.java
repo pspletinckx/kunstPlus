@@ -8,17 +8,22 @@ import android.webkit.WebView;
 
 
 public class QRObjectActivity extends ActionBarActivity {
-
+    private WebView webView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrobject);
-        WebView webView = new WebView(this);
+        webView = new WebView(this);
         setContentView(webView);
         //WebView webView = (WebView)this.findViewById(R.id.qr_render);
-        webView.loadUrl("http://github-pspletinckx.rhcloud.com");
+        //webView.loadUrl("http://github-pspletinckx.rhcloud.com");
         //webView.loadUrl("http://users.hogent.be/pspletinckx");
         //webView.loadUrl("http://github-pspletinckx.rhcloud.com/kazouAalst");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String QRResource = extras.getString("LoadResource");
+            webView.loadUrl(QRResource);
+        }
     }
 
 
