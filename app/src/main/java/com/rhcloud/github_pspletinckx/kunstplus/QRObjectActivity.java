@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 public class QRObjectActivity extends ActionBarActivity {
@@ -14,6 +15,7 @@ public class QRObjectActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrobject);
         webView = new WebView(this);
+        webView.setWebViewClient(new WebViewClient());
         setContentView(webView);
         //WebView webView = (WebView)this.findViewById(R.id.qr_render);
         //webView.loadUrl("http://github-pspletinckx.rhcloud.com");

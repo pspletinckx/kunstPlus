@@ -66,24 +66,33 @@ public class QRScanActivity extends ActionBarActivity {
             return rootView;
         }
 
-    private class HandleClick implements View.OnClickListener {
-        public void onClick(View arg0) {
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCANMODE", "QR_CODE_MODE");
-            startActivityForResult(intent, 0);	//Barcode Scanner to scan for us
-        }
-    }
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (requestCode == 0) {
-            TextView tvStatus = (TextView) getActivity().findViewById(R.id.tvStatus); //this getActivity might be wrong
-            TextView tvResult = (TextView) getActivity().findViewById(R.id.tvResult);
-            if (resultCode == RESULT_OK) {
-                tvStatus.setText(intent.getStringExtra("SCAN_RESULT_FORMAT"));
-                tvResult.setText(intent.getStringExtra("SCAN_RESULT"));
-            } else if (resultCode == RESULT_CANCELED) {
-                tvStatus.setText("Press a button to start a scan.");
-                tvResult.setText("Scan cancelled.");
+        private class HandleClick implements View.OnClickListener {
+            public void onClick(View arg0) {
+                Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+                intent.putExtra("SCANMODE", "QR_CODE_MODE");
+                startActivityForResult(intent, 0);	//Barcode Scanner to scan for us
             }
         }
-    }   }
+        public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+            if (requestCode == 0) {
+                TextView tvStatus = (TextView) getActivity().findViewById(R.id.tvStatus); //this getActivity might be wrong
+                TextView tvResult = (TextView) getActivity().findViewById(R.id.tvResult);
+                if (resultCode == RESULT_OK) {
+                    tvStatus.setText(intent.getStringExtra("SCAN_RESULT_FORMAT"));
+                    tvResult.setText(intent.getStringExtra("SCAN_RESULT"));
+                    openMatchingQRObject(intent.getStringExtra("SCAN_RESULT"));
+                } else if (resultCode == RESULT_CANCELED) {
+                    tvStatus.setText("Press a button to start a scan.");
+                    tvResult.setText("Scan cancelled.");
+                  }
+            }
+        }
+
+        private void openMatchingQRObject(String id) {
+            String QRresource = "http://github-pspletinckx.rhcloud.com/kunstPlus/QR/"+id;
+            Intent intent = new Intent(getActivity(),QRObjectActivity.class);
+            intent.putExtra("LoadResource",QRresource);
+            startActivity(intent);
+        }
+    }
 }
