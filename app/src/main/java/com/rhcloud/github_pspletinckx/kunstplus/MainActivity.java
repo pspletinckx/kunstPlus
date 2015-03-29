@@ -39,15 +39,23 @@ public class MainActivity extends ActionBarActivity {
             case R.id.qr_object:
                 voorbeeldqrview();
                 return true;
+            case R.id.qr_scan:
+                toonqrscan();
+                return true;
             default:
         }
 
         return super.onOptionsItemSelected(item);
     }
     private void voorbeeldqrview(){
-        QRresource = "http://github-pspletinckx.rhcloud.com";
+        //QRresource = "http://github-pspletinckx.rhcloud.com";
+        QRresource = "http://github-pspletinckx.rhcloud.com/kunstPlus/QR/123456789ABCDEF/";
         Intent intent = new Intent(this,QRObjectActivity.class);
         intent.putExtra("LoadResource",QRresource);
+        startActivity(intent);
+    }
+    private void toonqrscan(){
+        Intent intent = new Intent(this,QRScanActivity.class);
         startActivity(intent);
     }
 }
