@@ -5,15 +5,33 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 
 public class MainActivity extends ActionBarActivity {
     private String QRresource;
+    private ListView advList;
+
+    String[] web = {
+            "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km",
+            "Joris Ghekiere - Vandaag, 16u - 20u - Naam Museum - 200m ",
+            "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km"
+
+    } ;
+    Integer[] imageId = {
+            R.drawable.carllcneut480,
+            R.drawable.jorisghekiere480,
+            R.drawable.carllcneut480
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AdvListAdaptor adaptor = new AdvListAdaptor(this,web,imageId);
+        advList = (ListView)findViewById(R.id.advList);
+        advList.setAdapter(adaptor);
+
     }
 
 
@@ -58,4 +76,5 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(this,QRScanActivity.class);
         startActivity(intent);
     }
+
 }
