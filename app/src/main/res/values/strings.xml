@@ -8,9 +8,10 @@
     <string name="title_activity_qrscan">QRScanActivity</string>
     <string name="title_activity_app_main">AppMainActivity</string>
 
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">kustPlus</string>
+    <string name="title_section2">Scan Modus</string>
+    <string name="title_section3">Favorieten</string>
+    <string name="title_section4">Feedback</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
