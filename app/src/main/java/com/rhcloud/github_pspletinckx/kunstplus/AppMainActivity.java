@@ -53,9 +53,27 @@ public class AppMainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        
-        //Pieter: Implement different Fragments here
         FragmentManager fragmentManager = getSupportFragmentManager();
+        //Pieter: Implement different Fragments here
+        switch (position){
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, HomeScreenFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 4:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container,AboutFragment.newInstance(position + 1) )
+                        .commit();
+                break;
+            default:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+
+        }
+
         if(position ==0){
 
             fragmentManager.beginTransaction()
@@ -63,9 +81,7 @@ public class AppMainActivity extends ActionBarActivity
                     .commit();
         }
         else {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                    .commit();
+
         }
     }
 
@@ -82,6 +98,9 @@ public class AppMainActivity extends ActionBarActivity
                 break;
             case 4:
                 mTitle = getString(R.string.title_section4);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_section5);
                 break;
         }
     }

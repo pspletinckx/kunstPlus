@@ -12,6 +12,7 @@
     <string name="title_section2">Scan Modus</string>
     <string name="title_section3">Favorieten</string>
     <string name="title_section4">Feedback</string>
+    <string name="title_section5">Over</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,6 +20,6 @@
     <string name="action_example">Example action</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_about_info">Deze mobiele applicatie werd gemaakt tijdens het interfacultaire vak ondernemen door...</string>
 
 </resources>
