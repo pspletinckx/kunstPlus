@@ -1,6 +1,7 @@
 package com.rhcloud.github_pspletinckx.kunstplus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -50,10 +53,20 @@ public class AppMainActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+        
+        //Pieter: Implement different Fragments here
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        if(position ==1){
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, HomeScreenFragment.newInstance(position + 1))
+                    .commit();
+        }
+        else {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                    .commit();
+        }
     }
 
     public void onSectionAttached(int number) {
@@ -117,13 +130,13 @@ public class AppMainActivity extends ActionBarActivity
          * The fragment argument representing the section number for this
          * fragment.
          */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        private static final String ARG_SECTION_NUMBER = "section_number"; //private static arg
 
         /**
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
+        public static PlaceholderFragment newInstance(int sectionNumber) { //factory??
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -131,7 +144,7 @@ public class AppMainActivity extends ActionBarActivity
             return fragment;
         }
 
-        public PlaceholderFragment() {
+        public PlaceholderFragment() { //constructor??
         }
 
         @Override
@@ -147,6 +160,68 @@ public class AppMainActivity extends ActionBarActivity
             ((AppMainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+    }
+
+    public static class HomeScreenFragment extends Fragment {
+        private String QRresource;
+        private ListView advList;
+
+        String[] web = {
+                "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km",
+                "Joris Ghekiere - Vandaag, 16u - 20u - Naam Museum - 200m ",
+                "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km"
+
+        } ;
+        Integer[] imageId = {
+                R.drawable.carllcneut480,
+                R.drawable.jorisghekiere480,
+                R.drawable.carllcneut480
+        };
+
+        public HomeScreenFragment() {
+        }
+
+        public static HomeScreenFragment newInstance(int sectionNumber) { //factory??
+            HomeScreenFragment fragment = new HomeScreenFragment();
+            Bundle args = new Bundle();
+
+            fragment.setArguments(args);
+            return fragment;
+        }
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.activity_main, container, false);
+            AdvListAdaptor adaptor = new AdvListAdaptor(getActivity(),web,imageId);
+            advList = (ListView)rootView.findViewById(R.id.advList);
+            advList.setAdapter(adaptor);
+            return rootView;
+
+        }
+        /* Translate
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            AdvListAdaptor adaptor = new AdvListAdaptor(this,web,imageId);
+            advList = (ListView)findViewById(R.id.advList);
+            advList.setAdapter(adaptor);
+
+        }
+        */
+
+        private void voorbeeldqrview(){
+            //QRresource = "http://github-pspletinckx.rhcloud.com";
+            QRresource = "http://github-pspletinckx.rhcloud.com/kunstPlus/QR/123456789ABCDEF/";
+            Intent intent = new Intent(getActivity(),QRObjectActivity.class);
+            intent.putExtra("LoadResource",QRresource);
+            startActivity(intent);
+        }
+        private void toonqrscan(){
+            Intent intent = new Intent(getActivity(),QRScanActivity.class);
+            startActivity(intent);
+        }
+
     }
 
 }
