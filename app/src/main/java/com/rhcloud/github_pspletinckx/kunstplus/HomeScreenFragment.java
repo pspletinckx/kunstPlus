@@ -1,5 +1,6 @@
 package com.rhcloud.github_pspletinckx.kunstplus;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 public class HomeScreenFragment extends Fragment {
+    private static final String ARG_SECTION_NUMBER = "section_number";
     private String QRresource;
     private ListView advList;
 
@@ -30,7 +32,7 @@ public class HomeScreenFragment extends Fragment {
     public static HomeScreenFragment newInstance(int sectionNumber) { //factory??
         HomeScreenFragment fragment = new HomeScreenFragment();
         Bundle args = new Bundle();
-
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
@@ -44,17 +46,13 @@ public class HomeScreenFragment extends Fragment {
         return rootView;
 
     }
-        /* Translate
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            AdvListAdaptor adaptor = new AdvListAdaptor(this,web,imageId);
-            advList = (ListView)findViewById(R.id.advList);
-            advList.setAdapter(adaptor);
 
-        }
-        */
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        ((AppMainActivity) activity).onSectionAttached(
+                getArguments().getInt(ARG_SECTION_NUMBER));
+    }
 
     private void voorbeeldqrview(){
         //QRresource = "http://github-pspletinckx.rhcloud.com";
