@@ -63,7 +63,8 @@ public class AppMainActivity extends ActionBarActivity
                 break;
             case 1:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, ContentFragment.newInstance(position + 1))
+                        .replace(R.id.container, ContentFragment.newInstance(position + 1,
+                                "http://github-pspletinckx.rhcloud.com/kunstPlus/QR/APPPRESENTATION/"))
                         .commit();
                 break;
             case 2:
@@ -159,7 +160,7 @@ public class AppMainActivity extends ActionBarActivity
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment { //Using this as a 404 fragment
         /**
          * The fragment argument representing the section number for this
          * fragment.

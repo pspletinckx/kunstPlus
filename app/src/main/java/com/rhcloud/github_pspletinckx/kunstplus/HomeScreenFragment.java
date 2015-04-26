@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class HomeScreenFragment extends Fragment {
@@ -14,7 +16,7 @@ public class HomeScreenFragment extends Fragment {
     private String QRresource;
     private ListView advList;
 
-    String[] web = {
+    String[] titles = {
             "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km",
             "Joris Ghekiere - Vandaag, 16u - 20u - Naam Museum - 200m ",
             "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km"
@@ -25,6 +27,13 @@ public class HomeScreenFragment extends Fragment {
             R.drawable.jorisghekiere480,
             R.drawable.carllcneut480
     };
+
+    String[] urls = {
+            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head",
+            "http://www.smak.be/tentoonstelling.php?la=nl&y=&tid=&t=&id=627", //non responive web
+            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head"
+    };
+
 
     public HomeScreenFragment() {
     }
@@ -39,9 +48,15 @@ public class HomeScreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
-        AdvListAdaptor adaptor = new AdvListAdaptor(getActivity(),web,imageId);
+        AdvListAdaptor adaptor = new AdvListAdaptor(getActivity(), titles,imageId);
         advList = (ListView)rootView.findViewById(R.id.advList);
         advList.setAdapter(adaptor);
+        advList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Clicked",""+id);
+            }
+        });
         return rootView;
 
     }
@@ -52,6 +67,7 @@ public class HomeScreenFragment extends Fragment {
         ((AppMainActivity) activity).onSectionAttached(
                 getArguments().getInt(ARG_SECTION_NUMBER));
     }
+
 
     private void voorbeeldqrview(){
         //QRresource = "http://github-pspletinckx.rhcloud.com";
