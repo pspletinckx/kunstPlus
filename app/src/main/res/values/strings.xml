@@ -19,6 +19,9 @@
 
     <string name="action_example">Example action</string>
 
+    <string name="ui_content_like">Leuk vinden!</string>
+    <string name="ui_content_share">Delen</string>
+
     <string name="text_feedback_info">Heb je een fout gevonden of heb je een suggestie? </string>
     <string name="ui_feedback_submit">Verzenden</string>
 
