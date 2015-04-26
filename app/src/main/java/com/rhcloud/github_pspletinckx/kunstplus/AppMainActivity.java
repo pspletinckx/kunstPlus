@@ -61,6 +61,16 @@ public class AppMainActivity extends ActionBarActivity
                         .replace(R.id.container, HomeScreenFragment.newInstance(position + 1))
                         .commit();
                 break;
+            case 2:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, LikesFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, FeedbackFragment.newInstance(position + 1))
+                        .commit();
+                break;
             case 4:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container,AboutFragment.newInstance(position + 1) )

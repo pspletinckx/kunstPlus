@@ -37,9 +37,8 @@ public class HomeScreenFragment extends Fragment {
         return fragment;
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_main, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
         AdvListAdaptor adaptor = new AdvListAdaptor(getActivity(),web,imageId);
         advList = (ListView)rootView.findViewById(R.id.advList);
         advList.setAdapter(adaptor);

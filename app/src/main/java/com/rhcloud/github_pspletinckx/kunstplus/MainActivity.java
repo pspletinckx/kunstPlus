@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_homescreen);
         AdvListAdaptor adaptor = new AdvListAdaptor(this,web,imageId);
         advList = (ListView)findViewById(R.id.advList);
         advList.setAdapter(adaptor);
