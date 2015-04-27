@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 
 public class AppMainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,ContentFragmentCallbacks {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -156,6 +156,18 @@ public class AppMainActivity extends ActionBarActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void openContentWindow(String url) {
+        onNavigationDrawerItemSelected(1);
+        /*
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, ContentFragment.newInstance(2,url))
+                .commit();
+                */
+    }
+
 
     /**
      * A placeholder fragment containing a simple view.

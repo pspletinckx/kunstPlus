@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ public class HomeScreenFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     private String QRresource;
     private ListView advList;
+    private ContentFragmentCallbacks mCallback;
 
     String[] titles = {
             "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km",
@@ -29,9 +31,9 @@ public class HomeScreenFragment extends Fragment {
     };
 
     String[] urls = {
-            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head",
+            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content",
             "http://www.smak.be/tentoonstelling.php?la=nl&y=&tid=&t=&id=627", //non responive web
-            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head"
+            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content"//content to skip header
     };
 
 
@@ -55,6 +57,8 @@ public class HomeScreenFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("Clicked",""+id);
+                //mCallback.openContentWindow(urls[(int)id]); //Heb ik nog niet kunnen doen werken, ga ik vervangen door intent
+                displayUrl(urls[(int)id]);
             }
         });
         return rootView;
@@ -76,9 +80,18 @@ public class HomeScreenFragment extends Fragment {
         intent.putExtra("LoadResource",QRresource);
         startActivity(intent);
     }
+    private void displayUrl(String url){
+        if(url!=null) {
+            Intent intent = new Intent(getActivity(), QRObjectActivity.class);
+            intent.putExtra("LoadResource", url);
+            startActivity(intent);
+        }
+    }
     private void toonqrscan(){
         Intent intent = new Intent(getActivity(),QRScanActivity.class);
         startActivity(intent);
+    }
+    public void voorbeeldContentFragment(){
     }
 
 }
