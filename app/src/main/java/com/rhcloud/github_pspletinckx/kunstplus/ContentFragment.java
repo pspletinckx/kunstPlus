@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -32,7 +33,8 @@ public class ContentFragment extends Fragment {
         Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_content, container, false);
         WebView webView = (WebView)rootView.findViewById(R.id.qr_render);
-        webView.setWebViewClient(new WebViewClient());
+        //webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
         webView.loadUrl(getTargetUrl());
         //webView.loadUrl("http://github-pspletinckx.rhcloud.com/kunstPlus/QR/APPPRESENTATION/");
         //webView.loadUrl("http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head");
