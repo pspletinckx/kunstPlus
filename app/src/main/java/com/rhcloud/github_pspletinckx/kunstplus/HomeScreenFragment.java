@@ -19,21 +19,44 @@ public class HomeScreenFragment extends Fragment {
     private ContentFragmentCallbacks mCallback;
 
     String[] titles = {
-            "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km",
-            "Joris Ghekiere - Vandaag, 16u - 20u - Naam Museum - 200m ",
-            "In My Head-Carll Cneut - ma-vr, 16u - 20u - Naam Museum - 1Km"
+            "In My Head-Carll Cneut \n"+
+            "ma-vr, 16u - 20u -  | Afstand: 1Km",
+
+            "Joris Ghekiere - S.M.A.K. \n"+
+             "Vandaag, 16u - 20u | Afstand: 200m ",
+
+            "Christian Falsnaes - Kiosk\n" +
+            "",
+
+            "Joris Ghekiere - S.M.A.K. \n"+
+            "Vandaag, 16u - 20u | Afstand: 200m ",
+
+            "Jef Geys - S.M.A.K.",
+
+            "Larry Sultan - S.M.A.K.",
+
+            "Tabula Rasa - Museum Dr. Guislain"
 
     } ;
     Integer[] imageId = {
             R.drawable.carllcneut480,
             R.drawable.jorisghekiere480,
-            R.drawable.carllcneut480
+            R.drawable.christian_falsnaes_thumbnail_eartnow,
+            R.drawable.img_ghekiere_12,
+            R.drawable.img_jefgeys_affiche_datum,
+            R.drawable.img_larry_sultan_serie_pictures_from_home_empty_pool_1991,
+            R.drawable.ronny_delrue_lost_memory_2006_fotoprint
+
     };
 
     String[] urls = {
-            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content",
+            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content",//content to skip header
             "http://www.smak.be/tentoonstelling.php?la=nl&y=&tid=&t=&id=627", //non responive web
-            "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content"//content to skip header
+            "One",
+            "Two",
+            "Three",
+            "Four",
+            "Five"
     };
 
 

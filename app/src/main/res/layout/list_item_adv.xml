@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="5dp">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="100px"
-        android:id="@+id/imageView"/>
+        android:id="@+id/imageView"
+        android:src="@drawable/img_jefgeys_affiche_datum"
+        android:adjustViewBounds="true" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Binnen een straal van 1Km"
-        android:id="@+id/txt" />
-</LinearLayout>
+        android:id="@+id/txt"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignRight="@+id/imageView"
+        android:background="#a2282828"
+        android:backgroundTintMode="screen"
+        android:textColor="#cff9f9f9"
+        android:gravity="right"/>
+
+</RelativeLayout>
