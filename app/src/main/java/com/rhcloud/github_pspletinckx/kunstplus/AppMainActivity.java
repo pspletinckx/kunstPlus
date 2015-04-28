@@ -62,9 +62,11 @@ public class AppMainActivity extends ActionBarActivity
                         .commit();
                 break;
             case 1:
+                //String url ="http://github-pspletinckx.rhcloud.com/kunstPlus/QR/APPPRESENTATION/";
+                String url ="https://dl.dropboxusercontent.com/u/33161611/HoGent/kunstPlus/Duiven%20in%20Mausoleum%20van%20Galla%20Placidia.htm";
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, ContentFragment.newInstance(position + 1,
-                                "http://github-pspletinckx.rhcloud.com/kunstPlus/QR/APPPRESENTATION/"))
+                                url))
                         .commit();
                 break;
             case 2:
