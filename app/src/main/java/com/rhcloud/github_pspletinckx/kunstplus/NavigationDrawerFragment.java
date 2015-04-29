@@ -203,10 +203,7 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Starting scanner...", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCANMODE", "QR_CODE_MODE");
-            startActivityForResult(intent, 0);	//Barcode Scanner to scan for us
+            mCallbacks.startScanning();
             return true;
         }
 
@@ -227,5 +224,6 @@ public class NavigationDrawerFragment extends Fragment {
     public static interface NavigationDrawerCallbacks {
 
         void onNavigationDrawerItemSelected(int position);
+        void startScanning();
     }
 }

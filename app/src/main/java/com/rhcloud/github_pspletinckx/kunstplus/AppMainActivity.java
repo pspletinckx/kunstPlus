@@ -20,6 +20,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class AppMainActivity extends ActionBarActivity
@@ -61,7 +62,6 @@ public class AppMainActivity extends ActionBarActivity
                         .replace(R.id.container, HomeScreenFragment.newInstance(position + 1))
                         .commit();
                 break;
-
             case 1:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, LikesFragment.newInstance(position + 1))
@@ -129,6 +129,7 @@ public class AppMainActivity extends ActionBarActivity
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.app_main, menu);
             restoreActionBar();
+            //startScanning();///temp
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -158,6 +159,42 @@ public class AppMainActivity extends ActionBarActivity
                 .replace(R.id.container, ContentFragment.newInstance(2,url))
                 .commit();
                 */
+    }
+
+    public void startScanning (){
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCANMODE", "QR_CODE_MODE");
+        startActivityForResult(intent, 0);
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        Log.d("requestcode", requestCode+"");
+
+        if (requestCode == 0) {
+
+            if (resultCode == RESULT_OK) {
+                //use Toast
+
+                openMatchingQRObject(intent.getStringExtra("SCAN_RESULT"));
+                //openMatchingFragment("");
+            } else if (resultCode == RESULT_CANCELED) {
+                //use Toast
+            }
+        }
+    }
+    private void openMatchingQRObject(String id) {
+        String QRresource = "https://dl.dropboxusercontent.com/u/33161611/HoGent/kunstPlus/"+id+".htm";
+        Intent intent = new Intent(this,QRObjectActivity.class);
+        intent.putExtra("LoadResource",QRresource);
+        startActivity(intent);
+    }
+
+    private void openMatchingFragment(String id){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        String url ="https://dl.dropboxusercontent.com/u/33161611/HoGent/kunstPlus/Duiven%20in%20Mausoleum%20van%20Galla%20Placidia.htm";
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, ContentFragment.newInstance(2,
+                        url))
+                .commit();
     }
 
 
