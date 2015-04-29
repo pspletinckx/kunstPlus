@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">KunstPlus</string>
+    <string name="app_name">Muse@</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_qrobject">QRObjectActivity</string>
     <string name="title_activity_qrscan">QRScanActivity</string>
     <string name="title_activity_app_main">AppMainActivity</string>
 
-    <string name="title_section1">kustPlus</string>
+    <string name="title_section1">Muse@</string>
     <string name="title_section2">Scan Modus</string>
     <string name="title_section3">Favorieten</string>
     <string name="title_section4">Feedback</string>
