@@ -61,25 +61,18 @@ public class AppMainActivity extends ActionBarActivity
                         .replace(R.id.container, HomeScreenFragment.newInstance(position + 1))
                         .commit();
                 break;
+
             case 1:
-                //String url ="http://github-pspletinckx.rhcloud.com/kunstPlus/QR/APPPRESENTATION/";
-                String url ="https://dl.dropboxusercontent.com/u/33161611/HoGent/kunstPlus/Duiven%20in%20Mausoleum%20van%20Galla%20Placidia.htm";
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, ContentFragment.newInstance(position + 1,
-                                url))
-                        .commit();
-                break;
-            case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, LikesFragment.newInstance(position + 1))
                         .commit();
                 break;
-            case 3:
+            case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, FeedbackFragment.newInstance(position + 1))
                         .commit();
                 break;
-            case 4:
+            case 3:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container,AboutFragment.newInstance(position + 1) )
                         .commit();
@@ -109,15 +102,12 @@ public class AppMainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_section1);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
-                break;
-            case 3:
                 mTitle = getString(R.string.title_section3);
                 break;
-            case 4:
+            case 3:
                 mTitle = getString(R.string.title_section4);
                 break;
-            case 5:
+            case 4:
                 mTitle = getString(R.string.title_section5);
                 break;
         }

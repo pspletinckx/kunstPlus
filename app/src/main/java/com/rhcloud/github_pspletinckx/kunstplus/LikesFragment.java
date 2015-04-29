@@ -16,8 +16,8 @@ public class LikesFragment extends Fragment {
 
     String[] web = {
             "Mausoleums der Galla Placidia in Ravenna",
-            "Mosaîc_Lillebonne_Orphée ",
-            "Mozaiek-uit-woonhuis-Pompei"
+            "Mosaîc Lillebonne Orphée ",
+            "Mozaiek uit woonhuis Pompei"
 
     } ;
     Integer[] imageId = {

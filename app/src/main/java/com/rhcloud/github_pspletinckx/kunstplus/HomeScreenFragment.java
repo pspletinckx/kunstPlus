@@ -53,7 +53,7 @@ public class HomeScreenFragment extends Fragment {
             "http://sintpietersabdij.stad.gent/nl/content/carll-cneut-my-head#content",//content to skip header
             "http://www.smak.be/tentoonstelling.php?la=nl&y=&tid=&t=&id=627", //non responive web
             "One",
-            "Two",
+            "http://www.smak.be/tentoonstelling.php?la=nl&y=&tid=&t=&id=627",
             "Three",
             "Four",
             "Five"
