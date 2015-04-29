@@ -4,8 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import java.util.zip.Inflater;
 
 
 public class QRObjectActivity extends ActionBarActivity {
@@ -13,10 +17,13 @@ public class QRObjectActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qrobject);
-        webView = new WebView(this);
-        webView.setWebViewClient(new WebViewClient());
-        setContentView(webView);
+        //View root = getWindow().getDecorView().findViewById(R.layout.activity_qrobject);
+        setContentView(R.layout.fragment_content);
+        View rootView =getWindow().getDecorView().getRootView();
+        WebView webView = (WebView)rootView.findViewById(R.id.qr_render);
+        //webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
+
         //WebView webView = (WebView)this.findViewById(R.id.qr_render);
         //webView.loadUrl("http://github-pspletinckx.rhcloud.com");
         //webView.loadUrl("http://users.hogent.be/pspletinckx");
