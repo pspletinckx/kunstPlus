@@ -1,5 +1,6 @@
 package com.rhcloud.github_pspletinckx.kunstplus;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.zip.Inflater;
 
@@ -32,8 +35,25 @@ public class QRObjectActivity extends ActionBarActivity {
         if (extras != null) {
             String QRResource = extras.getString("LoadResource");
             webView.loadUrl(QRResource);
-        }
+        Button save = (Button)rootView.findViewById(R.id.saveButton3);
+            save.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    meldingSaved(v);
+                }
+            });
+
+                }
+
     }
+    public void meldingSaved(View view){
+        Context context = getApplicationContext();
+        CharSequence text = "Opgeslagen als favoriet";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
 
 
     @Override

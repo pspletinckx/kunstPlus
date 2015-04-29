@@ -96,6 +96,14 @@ public class AppMainActivity extends ActionBarActivity
         }
     }
 
+    public void meldingSaved(View view){
+        Context context = getApplicationContext();
+        CharSequence text = "Opgeslagen als favoriet";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:

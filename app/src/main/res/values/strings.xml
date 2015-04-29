@@ -4,7 +4,7 @@
     <string name="app_name">Muse@</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_qrobject">QRObjectActivity</string>
+    <string name="title_activity_qrobject"></string>
     <string name="title_activity_qrscan">QRScanActivity</string>
     <string name="title_activity_app_main">AppMainActivity</string>
 
@@ -20,7 +20,7 @@
 
     <string name="action_example">Example action</string>
 
-    <string name="ui_content_like">Leuk vinden!</string>
+    <string name="ui_content_like">Opslaan</string>
     <string name="ui_content_share">Delen</string>
 
     <string name="text_feedback_info">Heb je een fout gevonden of heb je een suggestie? </string>
